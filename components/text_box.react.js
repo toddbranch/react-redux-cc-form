@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextBox = ({value, error, errorMessage, changeCallback, blurCallback}) => {
+const TextBox = ({value, error, errorMessage, changeCallback, blurCallback, maxLength}) => {
     let renderError = () => {
         if (!error) {
             return null;
@@ -19,7 +19,7 @@ const TextBox = ({value, error, errorMessage, changeCallback, blurCallback}) => 
 
     return (
         <div>
-            <input value={value} onChange={onChange} onBlur={onBlur} />
+            <input {...{value, onChange, onBlur, maxLength}} />
             {renderError()}
         </div>
     );

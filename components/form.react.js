@@ -8,6 +8,7 @@ var Form = ({cvcProps, cvcActions, cardNumberProps, cardNumberActions}) => {
                 {...cvcProps}
                 {...cvcActions}
                 errorMessage="Please enter a valid CVC code."
+                maxLength="4"
             />
             <TextBox
                 {...cardNumberProps}
