@@ -10,13 +10,13 @@ let mapStateToProps = ({cvc, cardNumber}) => {
 };
 
 var cvcActions = {
-    changeValue: function(text) {
+    changeCallback: function(text) {
         return {
             type: 'CHANGE_CVC',
             value: text
         };
     },
-    markDirty: function() {
+    blurCallback: function() {
         return {
             type: 'MARK_CVC_DIRTY'
         };
@@ -24,13 +24,13 @@ var cvcActions = {
 };
 
 var cardNumberActions = {
-    changeValue: function(text) {
+    changeCallback: function(text) {
         return {
             type: 'CHANGE_CARD_NUMBER',
             value: text
         };
     },
-    markDirty: function() {
+    blurCallback: function() {
         return {
             type: 'MARK_CARD_NUMBER_DIRTY'
         };

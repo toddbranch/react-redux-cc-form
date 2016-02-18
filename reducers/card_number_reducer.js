@@ -11,21 +11,27 @@ let isValid = (value) => {
     return Stripe.card.validateCardNumber(value);
 };
 
+const getError = (value, dirty) => {
+    if (!dirty) {
+        return null;
+    }
+
+    return !isValid(value);
+};
+
 const reducer = (state = defaultState, {type, value}) => {
     switch (type) {
         case CHANGE_CARD_NUMBER:
-            let error = state.dirty ? !isValid(value) : false;
-
             return {
                 value: value,
                 dirty: state.dirty,
-                error: error
+                error: getError(value, state.dirty)
             };
         case MARK_CARD_NUMBER_DIRTY:
             return {
                 value: state.value,
                 dirty: true,
-                error: !isValid(state.value)
+                error: getError(state.value, true)
             };
         default:
             return state

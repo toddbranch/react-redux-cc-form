@@ -14,6 +14,10 @@ var combined = combineReducers({
 
 var store = createStore(combined);
 
+store.subscribe(function(state) {
+    console.log(store.getState());
+});
+
 var App = (
     <Provider store={store}>
         <Form />
